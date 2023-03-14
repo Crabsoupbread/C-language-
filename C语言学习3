@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS 1//在高版本VS中，如果没有这一行，scanf函数不能直接用。必须使用scanf_s，原因是微软的安全设置。
+//由于scanf_s是微软独立的设置，所以不具备跨平台性。因此当多平台时应该使用scanf函数去写。
+//只要在源文件第一行加上#define....这一句话(必须加在第一行），就可以正常使用SCANF函数等其他“不安全”的函数（如strcpy)
+//C语言有四种常量：1.字面常量（如数字值3），2.由const修饰的变量。如const int num，此时num值不可变。3.由#define定义的标识符常量，4.枚举常量
+//需要注意的是，const只是赋予了变量常属性，故称为常变量，和常量有所区别。（如数组中使用就会一个报错一个可以）
+//#define定义的变量将变为常量。因此应当使用#define去定义那些固定值的变量，如#define MAX = 10；。
+//枚举常量：枚举关键-enum
+#include<stdio.h>//库
+//C语言使用任何量时都必须优先声明
+enum SEX//定义性别枚举常量
+{
+male, female, secret//枚举常量
+};//分号不可缺少
+
+int main()//主函数
+{
+enum SEX s = female;
+printf("%d\n", male);
+printf("%d\n", female);
+printf("%d\n", secret);
+return 0;
+}
