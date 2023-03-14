@@ -1,0 +1,77 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>//实现一个简单的游戏程序，包含简单的用户界面
+#include<stdlib.h>
+#include<time.h>
+
+void menu()//C语言使用自定义函数必须声明在主函数之前，这是一个简单的主界面
+{
+	printf("*********************\n");
+	printf("***1.play  0.exit****\n");
+	printf("*********************\n");
+}
+
+void game()
+{
+	//如果我们要生成一个随机数，需要采用新的函数rand();
+	int guess = 0;
+	int ret = 0;
+	//srand((unsigned int) time(NULL));//这一函数的作用是给rand()函数设置起点，从而让每次生成的结果不同。函数内预设返回值unsigned int
+	//这一函数输入固定数字时的返回值固定，因此必须给它一个不断变化的值使它的返回值不断改变。因此想到采用系统时间作为返回值。
+	//这一做法被称为时间戳。时间戳可以转换成一个时间（百度搜索），它的值表示当前计算机的时间减去1970年1月1日0时0分0秒，单位为秒。
+	//这里要采用time()函数，返回值是time_t类型。其实time_t类型就是long int类型，只是对它重新命名了。
+	//因此输入unsigned int（强制转换类型），(unsigned int) time()
+	//time()函数内部需要输入的类型为指针，因此输入NULL。NULL表示空指针。
+	//srand()函数应该放在主函数中，这样才能保证它达成最好的工作。
+	ret = rand() % 100 + 1;
+	//这一函数需要调用stdlib.h头文件，最大值RAND_MAX为32767。
+	//如果要使得rand()这个函数不会每次都生成相同结果，必须调用srand函数。
+	//我们可以减小这个范围，让它取模，就可以得到小于模的范围内的随机数。比如模100就是0-99。
+	//+1可以微调范围，使其变为1-100.
+	//以下进入循环部分：
+	while (1)//while(1)使它无限循环，如果想给游戏设置最大猜测次数，可以改变循环判断条件实现。
+	{
+		printf("猜一下数字：\n");
+		scanf("%d", &guess);
+		if (guess > ret)
+		{
+			printf("猜大了。\n");
+		}
+		else if (guess < ret)
+		{
+			printf("猜小了。\n");
+		}
+		else
+		{
+			printf("恭喜你猜对了！\n");
+			break;
+		}
+	}
+}
+
+int main()
+{
+	//为了使这一程序至少执行一次，循环体应该采用do...while
+	int input = 0;
+	srand((unsigned int)time(NULL));//只需要在循环之外调用一次这个函数，就能保证它的正常工作。注释在game（）内。
+	do
+	{
+		menu();
+		printf("请选择：(1/0)");
+		scanf("%d", &input);
+		switch (input)//switch...case:函数有个好处是可以批量化处理其他输入的情况，采用default:函数
+		{
+		case 1:
+			game();//进入ganme函数去玩这个游戏
+			break;
+		case 0:
+			printf("退出游戏。\n");
+			break;
+		default://批量处理其他输入的情况
+			printf("输入错误请重新输入。\n");
+			break;
+		}
+	} while (input);//当用户输入1时可以再玩一次，0时退出，其他输入时程序重复询问（其他输入会被while循环判定为真）。
+
+	return 0;
+}
