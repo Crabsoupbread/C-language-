@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+//简单的if else函数实现
+//int main()
+//{
+//	int input = 0;
+//	printf("你要好好学习吗？\n");
+//	printf("请做出选择(1/0)\n >:");
+//	scanf("%d", &input);//根据值作出相应判断、
+//	if (input == 1)
+//	{
+//		printf("走上人生巅峰\n");
+//	}
+//	else
+//	{
+//		printf("卖红薯\n");
+//	}
+//	return 0;
+//}
+
+//简单的whlie函数实例
+int main()
+{
+	int line = 0;
+	printf("坚持不懈的学习\n");
+	while (line < 99)
+	{
+		printf("努力\n");
+		line++;
+	}
+	printf("熬出头了，恭喜\n");
+	
+	return 0;
+}
