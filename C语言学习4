@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+//
+#include<stdio.h>
+#include<string.h>//使用strlen函数时必须包含这个库
+int main()
+{
+	//"abcdef"//字符串
+	//""//空字符串
+	char arr[] = "abc";//放入了'a','b','c'和'\0'其中'\0'为字符串结束标志
+	char arr2[] = {'a','b','c',0};//当不添加0时，会出现乱码。当添加0时，字符串输出结果和arr相同。或者也可以添加'\0'。
+	//'\0'只算做结束标志，不算做字符串内容
+	printf("%s\n", arr);//输出一个字符串
+	printf("%s\n", arr2);
+	printf("%d\n", strlen(arr));//strlen(),string length字符串长度
+	printf("%d\n", strlen(arr2));//当arr2中0不存在时，这个数字将是随机值
+	printf("%d\n", strlen("c:\test\32\test.c"));//这是因为\t是转义字符导致字符被转义，而\32属于\ddd形式的转义字符（d为8进制数字）
+	//而\32代表的8进制数经过转换后变为10进制数，查ASCII码表可得对应结果。所以本题原17个字符，实际被判断为13个字符。
+	//类似的\xdd，d表示16进制数，也表示转义后对应的单个字符。如\x30
+	return 0;
+}
