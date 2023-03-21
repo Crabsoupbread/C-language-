@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<math.h>
+//用函数的形式打印素数。范围为100-200
+
+int is_prime(int n)
+{
+	int j = 0;
+	for (j = 2; j <= sqrt(n); j++)//遍历所有可能被整除的数
+	{
+		if (n % j == 0)
+			return 0;
+		//一种错误的写法是：将else return 1；写到for循环内，这样会导致遍历不完全
+	}
+	return 1;//到这里只有一种可能，就是for循环中找不到对应的项，所以一定是素数。
+}
+
+
+
+int main()
+{
+	int i = 0;
+	for (i = 100;i < 200;i++)
+	{
+		if (is_prime(i) == 1)
+			printf("%d\n", i);
+	}
+	
+	return 0;
+}
