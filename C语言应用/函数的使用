@@ -1,0 +1,32 @@
+//本节学习函数的使用
+//函数一般被概括成2种形式，第一种是有返回值的函数，如求和函数，这类函数的开头写法一般为int sum(int a,int b)，int表示这一函数返回类型。
+//另外一类则是无返回值的函数，一般用于执行特定操作如数据交换，写法是void fun(int x,int y)，void表示此函数无返回值。
+//对于执行特定操作的函数，要使用指针索引的方式才能正确实现效果，如以下代码:
+void fun1(int x, int y)
+{
+	int temp = 0;
+	temp = x;
+	x = y;
+	y = temp;
+}//这是一种无法实现目的的写法，原因是x与y和a与b的地址完全不同，因此函数执行完成后xy改变了值，但是对ab没有任何影响。
+
+void fun2(int* pa, int* pb)//int* 表示int类型变量的地址
+{
+	int temp1 = 0;
+	temp1 = *pa;//*pa表示对地址pa解引用，获得这个地址对应的数字a的值。
+	*pa = *pb;
+	*pb = temp1;
+}//采用地址的写法时，进出函数地址相同可以达到目的。
+
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	fun1(a, b);
+	printf("a = %d,b = %d\n", a, b);
+	fun2(&a, &b);
+	printf("a = %d,b = %d\n", a, b);
+	
+	return 0;
+}
