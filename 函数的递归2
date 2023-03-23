@@ -9,22 +9,31 @@ int my_strlen(char* str)//数组本质是一个指针，变量是字符串。因
 	int count = 0;
 	while (*str != '\0')//这一语句的意思是，没找到字符串结束符号'\0'时就不断寻找。
 	{
-		count++;
+		count++;//这里创建了一个计数器。但是如果不允许创建变量来计数那这一功能怎么实现呢？
 		str++;
 	}
 	return count;
 }
 
+int my_strlen1(char* ptr)//采用递归的思想去解决这个问题
+{
+	if (*ptr != '\0')
+		return 1 + my_strlen1(ptr + 1);//这里的意思是，如果没有检测到字符串结束符号，就继续递归。
+	else
+		return 0;//递归结束返回0，再逐级向上嵌套返回数值，1+1+1+1+1+0 方向：（<--）
+}
 
-
-int mian()
+int main()
 {
 	char arr[] = "hello";
 	int len = strlen(arr);
 	printf("依赖库函数时输出的是：%d\n", len);
 	//以上代码是获取字符串个数的常用代码，但是依赖了库函数string.h。自编写的代码如下：
 	int len1 = my_strlen(arr);
-	printf("自己编写时输出的是：%d\n", len1);
-	
+	printf("采用while循环时输出的是：%d\n", len1);
+	int len2 = my_strlen1(arr);
+	printf("采用递归时输出的是：%d\n", len2);
+
 	return 0;
 }
+//这样就实现了复现一个strlen函数。
