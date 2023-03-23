@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	char arr1[] = "abc";
+	char arr2[] = { 'a','b','c' };
+	printf("%d\n", sizeof(arr1));
+	printf("%d\n", sizeof(arr2));
+	printf("%d\n", strlen(arr1));
+	printf("%d\n", strlen(arr2));
+	//以上代码输出的结果是多少？
+	//sizeof是适用于所有数组的字符个数计算函数，会计算所有字符的个数。
+	//strlen只适用于计算有效字符的个数（忽略'\0'）
+	//strlen在没有获取到字符串结束代码时，会无法停止导致输出一个随机数。
+	return 0;
+}
