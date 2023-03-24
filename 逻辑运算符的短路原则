@@ -1,0 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int main()
+{
+	int i = 0, a = 0, b = 2, c = 3, d = 4;
+	i = a++ && ++b && d++;//当逻辑运算符或&&进行判断时，从左到右的某一项为0（假）时，程序立刻终止不再进行后续计算。
+	//这一原则被称为逻辑运算符的短路原则。
+	printf("%d,%d,%d,%d\n", a, b, c, d);
+	
+	return 0;
+}
