@@ -17,6 +17,13 @@ int main()
 		*(p + i) = 1;
 		printf("%d ", arr[i]);
 	}
+	//也可以采用这种写法：
+	for (i = 0; i < 10; i++)
+	{
+		*p = 1;
+		printf("%d ", arr[i]);
+		p++;
+	}
 	
 
 	return 0;
