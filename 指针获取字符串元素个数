@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+//使用指针的方式去计算字符串元素个数。
+int my_strlen(char* str)
+{
+	char* start = str;
+	char* end = str;
+	while (*end != '\0')//使用指针的方式遍历寻找字符串终止代码。
+	{
+		end++;
+	}
+	return end - start;//两个指针相减返回的是这两个指针之间的空间大小。
+}
+
+int main()
+{
+	char arr[] = "bit";
+	int len = my_strlen(arr);
+	printf("%d\n", len);
+
+	return 0;
+}
