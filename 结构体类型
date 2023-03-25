@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+struct Stu
+{
+	char name[20];
+	int age;
+	char id[20];
+};
+//通过这一操作定义了一个三输入的结构体Stu。
+//struct 和 int 本质一样，都是定义变量的对象，采用这种办法自定义时要先声明，且不用加（），句末用 ; 结尾。
+
+
+int main()
+{
+	struct Stu s1 = { "Liwang",21,"2020304560" };//结构体的定义在主函数中要先声明，并且正确赋值。
+	printf("名字是：%s，年龄是：%d，学号是：%s \n", s1.name,s1.age,s1.id);//打印时采用结构体变量.成员名的方式打印。（ . 是英文输入）
+	struct Stu* pr = &s1;
+	printf("名字是：%s，年龄是：%d，学号是：%s \n", (*pr).name, (*pr).age, (*pr).id);
+	printf("名字是：%s，年龄是：%d，学号是：%s \n", pr->name, pr->age, pr->id);// ->是结构体指向操作符，结构体指针 -> 成员名。
+	//以上两种对应结构体指针的打印方式。
+	return 0;
+}
