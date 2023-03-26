@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>//自编写一个函数实现获取字符串元素个数。
+#include<string.h>
+
+int my_strlen(char* str)//数组本质是一个指针，变量是字符串。因此接受时也必须使用字符指针变量。
+{
+	//传过来的字符是：h e l l o '\0'，共六个字符。
+	int count = 0;
+	while (*str != '\0')//这一语句的意思是，没找到字符串结束符号'\0'时就不断寻找。
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+
+
+
+int mian()
+{
+	char arr[] = "hello";
+	int len = strlen(arr);
+	printf("依赖库函数时输出的是：%d\n", len);
+	//以上代码是获取字符串个数的常用代码，但是依赖了库函数string.h。自编写的代码如下：
+	int len1 = my_strlen(arr);
+	printf("自己编写时输出的是：%d\n", len1);
+
+	return 0;
+}
