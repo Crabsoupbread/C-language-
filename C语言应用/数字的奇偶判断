@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS 1//这是一个简单的作业
+
+#include<stdio.h>//写出一个判断整形数奇偶的简单程序
+
+int main()
+{
+	printf("请输入一个整数：\n");
+	int a = 0;
+	scanf("%d", &a);//用scanf_s在微软平台上兼容性更好，但不具备跨平台性
+	if (a % 2 == 1)//我才用的是取余数思想，偶数取余数必定为0，奇数必定为1。
+		printf("这是个奇数。\n");
+	else
+		printf("这是个偶数。\n");
+	//上半部分表示获取用户输入的数据进行判断
+	//下半部分是判断一个范围内的所有数的奇偶性
+	int i = 0;
+	while(i <= 100)//while循环，不是whlie，英语学好点就不会犯低级错误
+	{
+		if (i%2 == 1)
+			printf("%d，这个数是奇数\n",i);
+		else
+			printf("%d，这个数是偶数\n", i);
+		i++;
+	}
+	return 0;
+}
