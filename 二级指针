@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int main()
+{
+	int a = 10;
+	int* pa = &a;
+	int** ppa = &pa;//ppa就是对于变量a的二级指针，int**的意思是，最后的*表示是指针，int*表示他所修饰的对象是指针
+	//同理，int*** pppa = &ppa这就是三级指针，但是先不做这个要求，重点先看二级指针
+	printf("%d\n", **ppa);//这表示对二级指针进行两次解引用，返回到a的值
+	//二级指针一般用于指针数组中。
+	//指针数组是存放指针的数组。
+	return 0;
+}
