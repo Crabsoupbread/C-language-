@@ -19,7 +19,7 @@
 //	return 0;
 //}
 
-//简单的whlie函数实例
+//简单的while函数实例
 int main()
 {
 	int line = 0;
