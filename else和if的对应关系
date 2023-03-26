@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//之前的样例中有个问题，if else到底是怎样的对应关系，看这段代码：
+int main()
+{
+	int a = 0;
+	int b = 2;
+	if (a == 1)
+		if (b == 2)
+			printf("hehe\n");
+	else
+		printf("haha\n");
+
+	return 0;
+}
+//这段代码输出结果是hehe还是haha？答案是什么也不输出。
+//原因是else无论在结构上放在何处，都与距离它最近的未匹配的if相对应
+//代码上的不规则写法容易招致误解，考试也喜欢考这个东西
+//如果想让上面的代码能输出haha，则必须将if(b == 2)和后面的语句放在代码块{}之中
