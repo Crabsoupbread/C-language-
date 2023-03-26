@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>//本节是while语句的教学
+
+int main()
+{
+	int i = 0;
+	while (i < 10)
+	{
+		if (i == 5)
+			break;
+		printf("%d\n", i);
+		i++;
+	}
+	//下面是一个简单的思考题：
+	int ch = getchar();//getchar()表示获取字符
+	putchar(ch);//putchar(ch)表示打印ch中的字符，与printf("%c\n",ch)相同
+	while ((ch = getchar()) != EOF)
+	{
+		putchar(ch);
+	}
+	//这段代码表示连续获取输入并输出。
+	//当想退出这个程序时，需要CRTL+Z按钮就可退出
+	//EOF -> end of file -> -1
+	return 0;
+}
+//除去if部分时是最基本的while语句
+//当if语句内带有break时，表示立刻跳出循环，即while循环立刻结束。此时打印0-4。
+//当if语句内带有continue时，continue语句是指此语句之后的所有语句不执行，立刻返回循环的初始阶段。此时系统将进入0-4的死循环。
+//若改变i++语句的位置使其在continue语句之前，那么这一结构会正常结束，此时输出结果将跳过5，输出0,1,2,3,4,6,7,8,9
