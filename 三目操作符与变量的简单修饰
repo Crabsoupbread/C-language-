@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int main()
+{
+	//exp1?exp2:exp3，这个表达式的意思是，当exp1中的内容为真时执行exp2，否则执行exp3。与if else语句非常相似。如以下代码：
+	register int a = 10;//建议将a放在寄存器变量里面中，是否放入由编译器自己决定。（寄存器变量使用速度更快）
+	int b = 20;//int是有符号的，全称为signed int，只是采用省略写法int
+	//unsigned int表示输入一个无符号整形数，unsigned表示无符号。
+	int max = 0;
+	max = (a > b ? a : b);//三目操作符
+	printf("%d\n", max);
+	return 0;
+}
+//typedef，表示别名，如以下语句： typedef unsigned int u_sint;则后续所有unsigned int语句都可以用u_int表示。
+//static作用为修饰局部变量，static int a，修饰a时，局部变量生命周期变长，出局部区域时也不再销毁，而是保留最后一次编译的数据。
+//不同文件中的全局变量用extern修饰后，可以在不同的源文件中使用。如extern int g_val;这表明g_val的外部全局变量可被使用。
+//特别的，static函数会改变函数的链接属性。正常的函数是有外部链接属性的，可以被extern函数调用，但是static函数会把函数设置成内部链接属性，也就无法再外部调用。
