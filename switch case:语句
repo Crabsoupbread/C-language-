@@ -1,0 +1,44 @@
+int main()//当我们要打印星期的时候（多分支）该如何处理？
+{
+	int day = 0;
+	printf("请输入1-7\n");
+	scanf("%d", &day);
+	if (day > 0 && day < 8)
+	{
+		switch (day)//switch函数与case配合使用，括号内数字表示进入的时刻，比如day = 3的话就是从case 3进入函数
+			//但是，switch不会主动终止，必须在case进入后设置一个终止语句break。
+			//如下列代码，当day = 1时会打印1-4的所有值，而4则不会。
+		{
+		case 1://这里要输入英文中的:号而不是;号
+			printf("星期一\n");
+		case 2:
+			printf("星期二\n");
+		case 3:
+			printf("星期三\n");
+		case 4:
+			printf("星期四\n");
+			break;//break语句本质表示是跳出switch函数
+		case 5:
+			printf("星期五\n");
+			break;
+		case 6:
+			printf("星期六\n");
+			break;
+		case 7:
+			printf("星期天\n");
+			break;
+		default://这是一个1-7以外输入的归总，不用case修饰的int值全部指向这一函数
+			printf("错误的输入\n");
+			break;
+		}
+		//switch - case - break语句非常适合处理多分支的情况
+		//注意switch（整型表达式），因此里面的变量要用 int 修饰
+		//case语句不一定需要在后面带上语句。case 1:后面没东西也是允许的。
+	}
+	else
+		printf("非法输入\n");
+
+	return 0;
+}
+//需要注意的是我采用的是if判断输入是否合法，但是有个更简单的方法，switch结构中的default:也能实现这一功能。
+//使用了if所以default语句未执行，但其实能实现功能。
